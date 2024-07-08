@@ -1,6 +1,8 @@
 package ir.ac.kntu;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +11,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class DashboardActivity extends AppCompatActivity {
+    public static Account account;
+    TextView balanceView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +24,13 @@ public class DashboardActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        balanceView=findViewById(R.id.balance);
+//        Account account=(Account)getIntent().getSerializableExtra("account");
+
+
+    }
+
+    public void onBalance(View view){
+        balanceView.setText(account.getBalance()+"");
     }
 }

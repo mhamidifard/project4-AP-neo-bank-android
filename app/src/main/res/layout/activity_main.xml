@@ -79,7 +79,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/loginButton"
-        app:layout_constraintTop_toTopOf="@+id/loginButton" />
+        app:layout_constraintTop_toTopOf="@+id/loginButton"
+        app:rippleColor="@color/proTheme" />
 
     <TextView
         android:id="@+id/textView"
@@ -87,7 +88,7 @@
         android:layout_height="36dp"
         android:text="@string/login"
         android:textAlignment="center"
-        android:textColor="@color/purple"
+        android:textColor="@color/proTheme"
         android:textColorLink="@color/design_default_color_primary"
         android:textSize="@dimen/title"
         app:layout_constraintBottom_toTopOf="@+id/guideline"

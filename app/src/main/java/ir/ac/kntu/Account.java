@@ -3,7 +3,7 @@ package ir.ac.kntu;
 import java.io.Serializable;
 import java.util.*;
 
-public class Account  {
+public class Account implements Serializable {
     private boolean verifyStatus = false;
     private boolean contactFeature = true;
     private Long verifyReq;

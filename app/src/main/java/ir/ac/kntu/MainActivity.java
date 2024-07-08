@@ -47,8 +47,9 @@ public class MainActivity extends AppCompatActivity {
         } else if (!account.isVerifyStatus()) {
             textErorr.setText("the account is not verified");
         } else {
-            textErorr.setText("loged in sucsusefull");
             Intent intent=new Intent(this,DashboardActivity.class);
+            //intent.putExtra("account",account);
+            DashboardActivity.account=account;
             startActivity(intent);
         }
     }
