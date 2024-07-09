@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +19,7 @@ public class DashboardActivity extends AppCompatActivity {
     private TextView balanceView;
     private Handler handler=new Handler();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,14 +32,12 @@ public class DashboardActivity extends AppCompatActivity {
         });
         balanceView=findViewById(R.id.balance);
 //        Account account=(Account)getIntent().getSerializableExtra("account");
-
-
     }
 
     @Override
     protected void onPostResume() {
         super.onPostResume();
-        balanceView.setText(account.getBalance()+"");
+        //balanceView.setText(account.getBalance()+"");
     }
 
     public void onBalance(View view) throws InterruptedException {

@@ -8,4 +8,6 @@
     <string name="charge">charge</string>
     <string name="amount">amount</string>
     <string name="Register">Register</string>
+    <string name="firstname">first name</string>
+    <string name="id">id</string>
 </resources>

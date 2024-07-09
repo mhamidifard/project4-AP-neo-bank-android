@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.25" />
+        app:layout_constraintGuide_percent="0.15" />
 
     <TextView
         android:id="@+id/textView6"
@@ -26,4 +26,139 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline13" />
+
+    <EditText
+        android:id="@+id/regFirstName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/firstname"
+        android:inputType="text"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/regLastName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <EditText
+        android:id="@+id/regLastName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="last name"
+        android:inputType="text"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/regPhone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regFirstName" />
+
+    <EditText
+        android:id="@+id/regPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/phone"
+        android:inputType="numberDecimal"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/regId"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regLastName" />
+
+    <EditText
+        android:id="@+id/regId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/id"
+        android:inputType="numberDecimal"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/regPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regPhone" />
+
+    <EditText
+        android:id="@+id/regPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regId"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/proTheme"
+        android:onClick="onRegister"
+        android:text="@string/Register"
+        android:textSize="@dimen/buttonTextSize"
+        app:layout_constraintBottom_toTopOf="@+id/guideline14"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regPassword" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <TextView
+        android:id="@+id/regFirstNameErr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/design_default_color_error"
+        android:textSize="@dimen/erorrSize"
+        app:layout_constraintEnd_toEndOf="@+id/regFirstName"
+        app:layout_constraintStart_toStartOf="@+id/regFirstName"
+        app:layout_constraintTop_toBottomOf="@+id/regFirstName" />
+
+    <TextView
+        android:id="@+id/regLastNameErr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/design_default_color_error"
+        android:textSize="@dimen/erorrSize"
+        app:layout_constraintEnd_toEndOf="@+id/regLastName"
+        app:layout_constraintStart_toStartOf="@+id/regLastName"
+        app:layout_constraintTop_toBottomOf="@+id/regLastName" />
+
+    <TextView
+        android:id="@+id/regPhoneErr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/design_default_color_error"
+        android:textSize="@dimen/erorrSize"
+        app:layout_constraintEnd_toEndOf="@+id/regPhone"
+        app:layout_constraintStart_toStartOf="@+id/regPhone"
+        app:layout_constraintTop_toBottomOf="@+id/regPhone" />
+
+    <TextView
+        android:id="@+id/regIdErr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/design_default_color_error"
+        android:textSize="@dimen/erorrSize"
+        app:layout_constraintEnd_toEndOf="@+id/regId"
+        app:layout_constraintStart_toStartOf="@+id/regId"
+        app:layout_constraintTop_toBottomOf="@+id/regId" />
+
+    <TextView
+        android:id="@+id/regPassErr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/design_default_color_error"
+        android:textSize="@dimen/erorrSize"
+        app:layout_constraintEnd_toEndOf="@+id/regPassword"
+        app:layout_constraintStart_toStartOf="@+id/regPassword"
+        app:layout_constraintTop_toBottomOf="@+id/regPassword" />
 </androidx.constraintlayout.widget.ConstraintLayout>

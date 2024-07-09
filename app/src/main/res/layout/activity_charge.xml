@@ -24,6 +24,7 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/proTheme"
         android:onClick="onDoCharge"
         android:text="@string/charge"
         app:layout_constraintBottom_toBottomOf="parent"
