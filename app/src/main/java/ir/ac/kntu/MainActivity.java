@@ -14,16 +14,16 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText textPhone;
-    EditText textPassword;
-    TextView textErorr;
+    private EditText textPhone;
+    private EditText textPassword;
+    private TextView textErorr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.chargeErorr), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
@@ -49,8 +49,12 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Intent intent=new Intent(this,DashboardActivity.class);
             //intent.putExtra("account",account);
-            DashboardActivity.account=account;
+            DashboardActivity.setAccount(account);
             startActivity(intent);
         }
+    }
+
+    public void onRegister(View view){
+        startActivity(new Intent(this,RegisterActivity.class));
     }
 }

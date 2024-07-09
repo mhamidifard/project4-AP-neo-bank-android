@@ -6,4 +6,6 @@
     <string name="balance">balance:</string>
     <string name="account">Account</string>
     <string name="charge">charge</string>
+    <string name="amount">amount</string>
+    <string name="Register">Register</string>
 </resources>

@@ -10,4 +10,8 @@ public class Helper {
         return ans;
     }
 
+    public static boolean isNumber(String text){
+        return true;
+    }
+
 }

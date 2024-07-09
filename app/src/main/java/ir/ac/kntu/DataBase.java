@@ -268,7 +268,7 @@ public class DataBase {
 
     public static void firstWorks() {
         DataBase.addSupport("mohammad", "supp12", "1382*");
-        DataBase.addUser(new Account("max","verstappen",912L,"331","20002001Wz@"));
+        DataBase.addUser(new Account("max","verstappen",912L,"331","912"));
         DataBase.findById("331").verify();
         DataBase.addUser(new Account("amir","hamedi",9301234567L,"007","13871388Wz@"));
         DataBase.findById("007").verify();

@@ -1,8 +1,11 @@
 package ir.ac.kntu;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,15 +14,16 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class DashboardActivity extends AppCompatActivity {
-    public static Account account;
-    TextView balanceView;
+    private static Account account;
+    private TextView balanceView;
+    private Handler handler=new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_dashboard);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.chargeErorr), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
@@ -30,7 +34,26 @@ public class DashboardActivity extends AppCompatActivity {
 
     }
 
-    public void onBalance(View view){
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
         balanceView.setText(account.getBalance()+"");
+    }
+
+    public void onBalance(View view) throws InterruptedException {
+        balanceView.setText(account.getBalance()+"");
+    }
+
+    public void onCharge(View view){
+        startActivity(new Intent(this,ChargeActivity.class));
+    }
+
+
+    public static void setAccount(Account account) {
+        DashboardActivity.account = account;
+    }
+
+    public static Account getAccount() {
+        return account;
     }
 }
