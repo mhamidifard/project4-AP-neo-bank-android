@@ -12,6 +12,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText textPhone;
@@ -32,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         textPhone = findViewById(R.id.userPhone);
         textPassword = findViewById(R.id.userPassword);
         textErorr = findViewById(R.id.loginErorr);
+
     }
 
     public void checkLogin(View view) {

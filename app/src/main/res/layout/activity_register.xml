@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/listTransaction"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterActivity">
@@ -59,7 +59,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/phone"
-        android:inputType="numberDecimal"
+        android:inputType="phone"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/regId"
         app:layout_constraintEnd_toEndOf="parent"

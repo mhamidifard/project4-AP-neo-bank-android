@@ -19,7 +19,8 @@ public class Charge extends Transaction {
     @Override
     public String toStringComplete(Account account) {
         return "charge\n" +
-                "amount: " + getValue() + " nav id: " + getNavId() +
-                "\ndate: " + getDate();
+                "\namount: " + getValue() +
+                "\n\nnav id: " + getNavId() +
+                "\n\ndate: " + getDate();
     }
 }

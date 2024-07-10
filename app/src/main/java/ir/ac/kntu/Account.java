@@ -71,7 +71,8 @@ public class Account implements Serializable {
 
     public void charge(long value) {
         setBalance(balance + value);
-        transactions.add(DataBase.addCharge(value, getAccountNumber()));
+        //transactions.add(DataBase.addCharge(value, getAccountNumber()));
+        transactions.add(0,DataBase.addCharge(value, getAccountNumber()));
     }
 
     public void doTransfer(long toAccountNum, long amount, long navId) {

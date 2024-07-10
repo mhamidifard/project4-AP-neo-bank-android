@@ -48,6 +48,9 @@ public class DashboardActivity extends AppCompatActivity {
         startActivity(new Intent(this,ChargeActivity.class));
     }
 
+    public void onTransaction(View view){
+        startActivity(new Intent(this,ListTransactionActivity.class));
+    }
 
     public static void setAccount(Account account) {
         DashboardActivity.account = account;

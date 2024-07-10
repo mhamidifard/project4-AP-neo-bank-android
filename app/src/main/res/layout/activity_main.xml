@@ -66,7 +66,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/phone"
-        android:inputType="numberSigned"
+        android:inputType="phone"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/userPassword"
         app:layout_constraintEnd_toEndOf="parent"
