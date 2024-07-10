@@ -52,6 +52,14 @@ public class DashboardActivity extends AppCompatActivity {
         startActivity(new Intent(this,ListTransactionActivity.class));
     }
 
+    public void onContact(View view){
+        startActivity(new Intent(DashboardActivity.this, ContactListActivity.class));
+    }
+
+    public void onTransfer(View view){
+        startActivity(new Intent(DashboardActivity.this,TransferActivity.class));
+    }
+
     public static void setAccount(Account account) {
         DashboardActivity.account = account;
     }

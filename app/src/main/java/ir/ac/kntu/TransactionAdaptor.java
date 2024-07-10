@@ -31,7 +31,7 @@ public class TransactionAdaptor extends ArrayAdapter<Long> {
         TextView type=convertView.findViewById(R.id.transactionTypeItem);
         TextView amount=convertView.findViewById(R.id.transactoinAmountItem);
         TextView navIdView=convertView.findViewById(R.id.navIdItem);
-        image.setImageResource(R.drawable.baseline_attach_money_24);
+        //image.setImageResource(R.drawable.baseline_attach_money_24);
         type.setText(transaction.getType()+"");
         amount.setText(transaction.getValue()+"");
         navIdView.setText(transaction.getNavId()+"");

@@ -54,4 +54,11 @@ public class Contact {
         return "first name : " + getFirstName() + " last name : " + getLastName() + "\n" +
                 "phone number : " + phoneNumber + " account number : " + accountNumber;
     }
+
+    public void editContact(String firstName, String lastName, long phoneNumber) {
+        setFirstName(firstName);
+        setLastName(lastName);
+        setPhoneNumber(phoneNumber);
+        setAccountNumber(DataBase.findByPhone(phoneNumber).getAccountNumber());
+    }
 }

@@ -13,8 +13,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class RegisterActivity extends AppCompatActivity {
-    EditText editFirstName,editLastName,editPhone,editId,editPassword;
-    TextView firstNameErorr,lastNameErorr,phoneErorr,idErorr,passwordErorr;
+    private EditText editFirstName, editLastName, editPhone, editId, editPassword;
+    private TextView firstNameErorr, lastNameErorr, phoneErorr, idErorr, passwordErorr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,65 +28,73 @@ public class RegisterActivity extends AppCompatActivity {
         });
         defItems();
     }
-    public void defItems(){
-        editFirstName=findViewById(R.id.regFirstName);
-        editLastName=findViewById(R.id.regLastName);
-        editPhone=findViewById(R.id.regPhone);
-        editId=findViewById(R.id.regId);
-        editPassword=findViewById(R.id.regPassword);
-        firstNameErorr=findViewById(R.id.regFirstNameErr);
-        lastNameErorr=findViewById(R.id.regLastNameErr);
-        phoneErorr=findViewById(R.id.regPhoneErr);
-        idErorr=findViewById(R.id.regIdErr);
-        passwordErorr=findViewById(R.id.regPassErr);
+
+    public void defItems() {
+        editFirstName = findViewById(R.id.regFirstName);
+        editLastName = findViewById(R.id.regLastName);
+        editPhone = findViewById(R.id.regPhone);
+        editId = findViewById(R.id.regId);
+        editPassword = findViewById(R.id.regPassword);
+        firstNameErorr = findViewById(R.id.regFirstNameErr);
+        lastNameErorr = findViewById(R.id.regLastNameErr);
+        phoneErorr = findViewById(R.id.regPhoneErr);
+        idErorr = findViewById(R.id.regIdErr);
+        passwordErorr = findViewById(R.id.regPassErr);
     }
-    public void onRegister(View view){
+
+    public void onRegister(View view) {
         clearErorrs();
-        boolean isOk=true;
-        String firstName=editFirstName.getText().toString();
-        if(!Helper.isLetter(firstName)){
+        boolean isOk = true;
+        String firstName = editFirstName.getText().toString();
+        if (!Helper.isLetter(firstName)) {
             firstNameErorr.setText("invalid first name");
-            isOk=false;
+            isOk = false;
         }
-        String lastName=editLastName.getText().toString();
-        if(!Helper.isLetter(lastName)){
+        String lastName = editLastName.getText().toString();
+        if (!Helper.isLetter(lastName)) {
             lastNameErorr.setText("invalid last name");
-            isOk=false;
+            isOk = false;
         }
 
-        String nationalId=editId.getText().toString();
-        if(!Helper.isNumber(nationalId) || nationalId.length()!=10){
+        String nationalId = editId.getText().toString();
+        if (!Helper.isNumber(nationalId) || nationalId.length() != 10 || DataBase.findById(nationalId) != null) {
             idErorr.setText("invalid id");
-            isOk=false;
+            isOk = false;
         }
-        long phone=0;
+        long phone = 0;
         try {
             phone = Helper.convertToPhone(editPhone.getText().toString());
-        }catch (Exception e){
+        } catch (Exception e) {
             phoneErorr.setText("invalid phone");
-            isOk=false;
-        }
-        String password=editPassword.getText().toString();
-        if(!Helper.isStrongPass(password)){
-            passwordErorr.setText("weak password");
-            isOk=false;
+            isOk = false;
         }
 
-        if(isOk){
-            doRegister(new Account(firstName,lastName,phone,nationalId,password),phone);
+        if (DataBase.findByPhone(phone) != null) {
+            phoneErorr.setText("invalid phone");
+            isOk = false;
+        }
+
+        String password = editPassword.getText().toString();
+        if (!Helper.isStrongPass(password)) {
+            passwordErorr.setText("weak password");
+            isOk = false;
+        }
+
+        if (isOk) {
+            doRegister(new Account(firstName, lastName, phone, nationalId, password), phone);
         }
     }
 
-    public void doRegister(Account newAccount,long phoneNumber){
+    public void doRegister(Account newAccount, long phoneNumber) {
         DataBase.addUser(newAccount);
 //        newAccount.setVerifyReq(DataBase.addSuppVerify(phoneNumber));
 //        newAccount.addSuppReq(newAccount.getVerifyReq());
         newAccount.verify();
-        Toast.makeText(getApplicationContext(),"register was successful",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "register was successful", Toast.LENGTH_SHORT).show();
         finish();
     }
 
-    public void clearErorrs(){
+    public void clearErorrs() {
         firstNameErorr.setText("");
         lastNameErorr.setText("");
         phoneErorr.setText("");

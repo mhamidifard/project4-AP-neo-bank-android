@@ -11,8 +11,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 
 public class TransactionDetailsActivity extends AppCompatActivity {
-    static Transaction transaction;
-    TextView details;
+    private static Transaction transaction;
+    private TextView details;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,16 +24,18 @@ public class TransactionDetailsActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        details=findViewById(R.id.transactionDetals);
+        details = findViewById(R.id.transactionDetals);
         details.setText(transaction.toStringComplete(DashboardActivity.getAccount()));
 
     }
 
-//    public static Transaction getTransaction() {
-//        return transaction;
-//    }
-//
-//    public static void setTransaction(Transaction transaction) {
-//        TransactionDetailsActivity.transaction = transaction;
-//    }
+    public static Transaction getTransaction() {
+        return transaction;
+    }
+
+    public static void setTransaction(Transaction transaction) {
+        TransactionDetailsActivity.transaction = transaction;
+    }
+
+
 }

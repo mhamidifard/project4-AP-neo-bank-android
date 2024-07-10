@@ -11,4 +11,7 @@
     <string name="firstname">first name</string>
     <string name="id">id</string>
     <string name="transactions">transactions</string>
+    <string name="contacts">contacts</string>
+    <string name="lastname">lastname\n</string>
+    <string name="transfer">transfer</string>
 </resources>

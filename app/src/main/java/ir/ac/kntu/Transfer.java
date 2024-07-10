@@ -113,9 +113,11 @@ public class Transfer extends Transaction{
             }
         }
         return transferType+"   "+transferStatus+"\n"+
-                "from: "+fromAccount +" amount: "+value+
-                "\nto: "+toAccount+" name: "+toName+
-                "\ndate: "+getDate()+" nav id: "+getNavId();
+                "from: "+fromAccount +
+                "\n\nto: "+toAccount+"\n\nname: "+toName+
+                "\n\namount: "+value+
+                "\n\nnav id: "+getNavId()+
+                "\n\n"+Helper.DateToString(getDate());
 
     }
 

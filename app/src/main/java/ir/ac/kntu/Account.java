@@ -127,7 +127,7 @@ public class Account implements Serializable {
 
 
     public void addTransferToList(long navId) {
-        transactions.add(navId);
+        transactions.add(0,navId);
     }
 
     public void addSuppReq(long navId) {
@@ -375,5 +375,13 @@ public class Account implements Serializable {
 
     public void setVerifyReq(Long verifyReq) {
         this.verifyReq = verifyReq;
+    }
+
+    public ArrayList<Contact> getContactsArray(){
+        ArrayList<Contact> arrayList=new ArrayList<>();
+        for (Map.Entry<Long,Contact> element:contactMap.entrySet()){
+            arrayList.add(element.getValue());
+        }
+        return arrayList;
     }
 }

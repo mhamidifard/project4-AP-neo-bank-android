@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -14,35 +12,45 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class ListTransactionActivity extends AppCompatActivity {
+public class ContactListActivity extends AppCompatActivity {
     private ListView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_list_transaction);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.listTransaction), (v, insets) -> {
+        setContentView(R.layout.activity_contact_list);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        listView=findViewById(R.id.listview);
-        TransactionAdaptor listAdapter=new TransactionAdaptor(ListTransactionActivity.this,(ArrayList<Long>) DashboardActivity.getAccount().getTransactions());
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        listView=findViewById(R.id.contactListview);
+        ArrayList<Contact> contacts=DashboardActivity.getAccount().getContactsArray();
+        ContactAdaptor listAdapter=new ContactAdaptor(ContactListActivity.this,contacts);
         listView.setAdapter(listAdapter);
         listView.setClickable(true);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Transaction transaction =DataBase.findTransaction(DashboardActivity.getAccount().getTransactions().get(i));
-                TransactionDetailsActivity.setTransaction(transaction);
-                startActivity(new Intent(ListTransactionActivity.this,TransactionDetailsActivity.class));
+                EditContactActivity.setContact(contacts.get(i));
+                startActivity(new Intent(ContactListActivity.this,EditContactActivity.class));
             }
         });
 
+    }
+
+    public void onAddContact(View view){
+        startActivity(new Intent(ContactListActivity.this,AddContactActivity.class));
     }
 }
