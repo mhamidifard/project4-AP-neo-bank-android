@@ -13,7 +13,7 @@ public abstract class Transaction {
     private long navId;
 
     public Transaction(long value, TraType type) {
-        //setDate(Calendar.now());
+        setDate(Calendar.now());
         setType(type);
         setValue(value);
         setNavId(createId());

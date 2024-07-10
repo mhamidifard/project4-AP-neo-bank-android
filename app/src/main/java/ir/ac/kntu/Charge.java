@@ -21,6 +21,6 @@ public class Charge extends Transaction {
         return "charge\n" +
                 "\namount: " + getValue() +
                 "\n\nnav id: " + getNavId() +
-                "\n\ndate: " + getDate();
+                "\n\n"+Helper.DateToString(getDate());
     }
 }

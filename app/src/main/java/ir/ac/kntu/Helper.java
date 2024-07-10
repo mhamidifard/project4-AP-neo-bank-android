@@ -2,6 +2,7 @@ package ir.ac.kntu;
 
 import android.util.Log;
 
+import java.time.Instant;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -60,6 +61,11 @@ public class Helper {
         }
         matcher = pSpecial.matcher(temp);
         return matcher.find();
+    }
+
+    public static String DateToString(Instant instant){
+        String temp=instant.toString();
+        return "date : "+temp.substring(0,temp.indexOf("T"))+"\n\ntime : "+temp.substring(temp.indexOf("T")+1,temp.indexOf("Z"));
     }
 
 }
