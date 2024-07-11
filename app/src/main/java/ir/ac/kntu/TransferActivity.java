@@ -52,4 +52,16 @@ public class TransferActivity extends AppCompatActivity {
         startActivity(new Intent(TransferActivity.this, AmountTransferActivity.class));
         finish();
     }
+
+    public void onContacts(View view){
+        Intent intent=new Intent(TransferActivity.this,ContactListActivity.class);
+        intent.putExtra("transfer",true);
+        startActivity(intent);
+        finish();
+    }
+
+    public void onLastAccounts(View view){
+        startActivity(new Intent(TransferActivity.this,LastAccsActivity.class));
+        finish();
+    }
 }

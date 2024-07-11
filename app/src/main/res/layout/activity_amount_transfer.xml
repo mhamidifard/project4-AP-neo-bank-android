@@ -67,7 +67,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:textAlignment="center"
-        android:textColor="@color/proTheme"
+        android:textColor="@color/design_default_color_error"
         android:textSize="@dimen/erorrSize"
         app:layout_constraintEnd_toEndOf="@+id/transferAmount"
         app:layout_constraintStart_toStartOf="@+id/transferAmount"

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -39,14 +40,28 @@ public class ContactListActivity extends AppCompatActivity {
         ContactAdaptor listAdapter=new ContactAdaptor(ContactListActivity.this,contacts);
         listView.setAdapter(listAdapter);
         listView.setClickable(true);
+        if(getIntent().hasExtra("transfer")){
+            Button addContact=findViewById(R.id.addContactButton);
+            addContact.setClickable(false);
+            addContact.setAlpha(0);
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    AmountTransferActivity.setToAccount(contacts.get(i).getAccountNumber());
+                    startActivity(new Intent(ContactListActivity.this, AmountTransferActivity.class));
+                    finish();
+                }
+            });
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                EditContactActivity.setContact(contacts.get(i));
-                startActivity(new Intent(ContactListActivity.this,EditContactActivity.class));
-            }
-        });
+        }else {
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    EditContactActivity.setContact(contacts.get(i));
+                    startActivity(new Intent(ContactListActivity.this, EditContactActivity.class));
+                }
+            });
+        }
 
     }
 

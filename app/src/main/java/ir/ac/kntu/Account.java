@@ -19,7 +19,7 @@ public class Account implements Serializable {
     private Card card;
     private List<Long> transactions = new ArrayList<>();
     private Map<Long, Contact> contactMap = new HashMap<>();
-    private List<LastTransfer> lastTransferAccs = new LinkedList<>();
+    private List<LastTransfer> lastTransferAccs = new ArrayList<>();
     private List<Long> supportRequests = new ArrayList<>();
     private Box smallMoneyBox;
     private List<Box> boxes = new ArrayList<>();
@@ -83,8 +83,9 @@ public class Account implements Serializable {
             toAccountObj.addTransferToList(navId);
         }
 //        lastTransferAccs.remove(toAccountNum);
-//        //lastTransferAccs.addFirst(toAccountNum);
+//        lastTransferAccs.add(0,new LastTransfer(toAccountNum,0));
 //        lastTransferAccs.add(0,toAccountNum);
+        updateListTransfer(toAccountNum,0);
     }
 
     public void updateListTransfer(long accNum, long cardNum) {
@@ -383,5 +384,9 @@ public class Account implements Serializable {
             arrayList.add(element.getValue());
         }
         return arrayList;
+    }
+
+    public String getFullName(){
+        return firstName+" "+lastName;
     }
 }
