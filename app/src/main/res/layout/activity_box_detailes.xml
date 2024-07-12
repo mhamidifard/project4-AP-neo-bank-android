@@ -7,4 +7,149 @@
     android:layout_height="match_parent"
     tools:context=".BoxDetailesActivity">
 
+    <ImageView
+        android:id="@+id/boxWithdraw"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/proTheme"
+        android:onClick="onWithdraw"
+        app:layout_constraintBottom_toBottomOf="@+id/boxEditAmount"
+        app:layout_constraintEnd_toStartOf="@+id/boxEditAmount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/boxEditAmount"
+        app:srcCompat="@drawable/baseline_arrow_downward_24" />
+
+    <ImageView
+        android:id="@+id/boxDeposit"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@color/proTheme"
+        android:onClick="onDeposit"
+        app:layout_constraintBottom_toBottomOf="@+id/boxEditAmount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/boxEditAmount"
+        app:layout_constraintTop_toTopOf="@+id/boxEditAmount"
+        app:srcCompat="@drawable/baseline_arrow_upward_24" />
+
+    <TextView
+        android:id="@+id/boxDetailesView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="TextView"
+        android:textColor="@color/proTheme"
+        android:textSize="@dimen/detailes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boxEditName"
+        tools:text="@string/boxDetailesTest" />
+
+    <EditText
+        android:id="@+id/boxEditName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Name"
+        android:textAlignment="center"
+        android:textColor="@color/proTheme"
+        android:textSize="@dimen/detailes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boxBalanceView" />
+
+    <Button
+        android:id="@+id/button15"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/buttonSize"
+        android:backgroundTint="@color/proTheme"
+        android:onClick="onEdit"
+        android:text="edit"
+        android:textColor="@color/design_default_color_background"
+        android:textSize="@dimen/buttonTextSize"
+        app:layout_constraintBottom_toBottomOf="@+id/textView32"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView32"
+        app:layout_constraintTop_toTopOf="@+id/textView32" />
+
+    <EditText
+        android:id="@+id/boxEditAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:ems="10"
+        android:hint="amount"
+        android:inputType="number"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boxDetailesView" />
+
+    <TextView
+        android:id="@+id/boxBalanceView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="TextView"
+        android:textColor="@color/proTheme"
+        android:textSize="@dimen/detailes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView32" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="balance :"
+        android:textColor="@color/proTheme"
+        android:textSize="@dimen/detailes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline35" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <Button
+        android:id="@+id/boxDeleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/buttonSize"
+        android:backgroundTint="@color/proTheme"
+        android:onClick="onDelete"
+        android:text="delete"
+        android:textSize="@dimen/buttonTextSize"
+        app:layout_constraintBottom_toBottomOf="@+id/textView32"
+        app:layout_constraintEnd_toStartOf="@+id/textView32"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView32" />
+
+    <ListView
+        android:id="@+id/boxTransactionListView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boxDetailesErorr"
+        app:layout_constraintVertical_bias="0.0"
+        tools:listitem="@layout/item_transaction" />
+
+    <TextView
+        android:id="@+id/boxDetailesErorr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/design_default_color_error"
+        android:textSize="@dimen/erorrSize"
+        app:layout_constraintEnd_toEndOf="@+id/boxEditAmount"
+        app:layout_constraintStart_toStartOf="@+id/boxEditAmount"
+        app:layout_constraintTop_toBottomOf="@+id/boxEditAmount" />
 </androidx.constraintlayout.widget.ConstraintLayout>

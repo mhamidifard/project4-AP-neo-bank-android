@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         textPhone = findViewById(R.id.userPhone);
         textPassword = findViewById(R.id.userPassword);
         textErorr = findViewById(R.id.loginErorr);
+        Thread manager=new Thread(new AutoManager());
+        manager.start();
 
     }
 
@@ -60,5 +62,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void onRegister(View view){
         startActivity(new Intent(this,RegisterActivity.class));
+    }
+
+    @Override
+    protected void onDestroy() {
+        AutoManager.setLive(false);
+        super.onDestroy();
     }
 }

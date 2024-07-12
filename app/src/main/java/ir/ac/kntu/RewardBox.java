@@ -8,15 +8,15 @@ public class RewardBox extends Box{
     private long days;
     private Account account;
 
-    public RewardBox(Long balance, long days) {
-        super(balance, TypeBox.REWARD);
+    public RewardBox(Long balance, long days, String name) {
+        super(balance, TypeBox.REWARD,name);
         this.days = days;
         setDate(days);
     }
 
     public void payProfit(){
         profeted=true;
-        account.profitBox((days*Parametr.getProfit()*getBalance())/(30*100));
+        account.profitBox((days*Parametr.getProfit()*getBalance())/(30*100),this);
     }
 
     public Instant getDate() {
@@ -24,7 +24,7 @@ public class RewardBox extends Box{
     }
 
     public void setDate(long days) {
-        //this.date = Calendar.now().plusSeconds(days*24*60*60);
+        this.date = Calendar.now().plusSeconds(days*24*60*60);
     }
 
     public long getDays() {
@@ -59,8 +59,8 @@ public class RewardBox extends Box{
     @Override
     public String toString() {
         return super.toString() +
-                "\ndays=" + days +
-                "   date=" + date +
-                "\nprofeted=" + profeted;
+                "\n\ndays=" + days +
+                "\n\nprofeted=" + profeted+
+                "\n\n"+Helper.DateToString(date);
     }
 }

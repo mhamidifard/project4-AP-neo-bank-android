@@ -37,9 +37,12 @@ public class TraBox extends Transaction {
 
     @Override
     public String toStringComplete(Account account) {
-        return getType() + "   " + boxAction + "\n" +
-                "account: " + accNum + " amount: " + getValue() +
-                "\ndate: " + getDate() + " nav id: " + getNavId();
+        return getType() + "\n\n" +
+                boxAction +
+                "\n\namount: " + getValue() +
+                "\n\naccount: " + accNum +
+                 "\n\nnav id: " + getNavId()+
+                "\n\n"+Helper.DateToString(getDate());
 
     }
 }

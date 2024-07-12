@@ -60,6 +60,10 @@ public class DashboardActivity extends AppCompatActivity {
         startActivity(new Intent(DashboardActivity.this,TransferActivity.class));
     }
 
+    public void onBox(View view){
+        startActivity(new Intent(DashboardActivity.this,ListBoxesActivity.class));
+    }
+
     public static void setAccount(Account account) {
         DashboardActivity.account = account;
     }

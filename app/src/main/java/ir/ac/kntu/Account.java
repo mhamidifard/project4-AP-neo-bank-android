@@ -166,13 +166,15 @@ public class Account implements Serializable {
         balance += amount;
         box.withdraw(amount);
         Long navId = DataBase.addTransaction(new TraBox(amount, accountNumber, BoxAction.WITHDRAW));
-        transactions.add(navId);
+        transactions.add(0,navId);
+        box.addTransaction(navId);
     }
 
-    public void profitBox(Long amount){
+    public void profitBox(Long amount,Box box){
         balance += amount;
         Long navId = DataBase.addTransaction(new TraBox(amount, accountNumber, BoxAction.PROFIT));
-        transactions.add(navId);
+        transactions.add(0,navId);
+        box.addTransaction(navId);
     }
 
     public void deposit(Box box, long amount) {
@@ -182,7 +184,8 @@ public class Account implements Serializable {
         balance -= amount;
         box.deposit(amount);
         Long navId = DataBase.addTransaction(new TraBox(amount, accountNumber, BoxAction.DEPOSIT));
-        transactions.add(navId);
+        transactions.add(0,navId);
+        box.addTransaction(navId);
     }
 
     public void checkSmallBox(long money) {
