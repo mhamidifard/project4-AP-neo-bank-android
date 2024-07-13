@@ -132,7 +132,7 @@ public class Account implements Serializable {
     }
 
     public void addSuppReq(long navId) {
-        supportRequests.add(navId);
+        supportRequests.add(0,navId);
     }
 
     public void changeCardPass(String pass) {

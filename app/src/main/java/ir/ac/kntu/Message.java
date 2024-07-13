@@ -1,5 +1,7 @@
 package ir.ac.kntu;
 
+import androidx.annotation.NonNull;
+
 import java.time.Instant;
 
 enum Sender {
@@ -27,5 +29,12 @@ public class Message {
 
     public Instant getDate() {
         return date;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "Sender: "+sender+
+                "\n\n"+text;
     }
 }

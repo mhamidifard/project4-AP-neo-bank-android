@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddSupportActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline37"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="add support request"
+        android:textColor="@color/proTheme"
+        android:textSize="@dimen/title"
+        app:layout_constraintBottom_toTopOf="@+id/guideline37"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline37" />
+
+    <RadioGroup
+        android:id="@+id/radioSubject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView34"
+        app:layout_constraintTop_toBottomOf="@+id/textView34">
+
+        <RadioButton
+            android:id="@+id/radioReport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Report" />
+
+        <RadioButton
+            android:id="@+id/radioContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="contact" />
+
+        <RadioButton
+            android:id="@+id/radioTransfer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Transfer" />
+
+        <RadioButton
+            android:id="@+id/radioBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="box" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="subject :"
+        android:textColor="@color/proTheme"
+        android:textSize="@dimen/detailes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView33" />
+
+    <Button
+        android:id="@+id/button17"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/buttonSize"
+        android:backgroundTint="@color/proTheme"
+        android:onClick="onSend"
+        android:text="send"
+        android:textSize="@dimen/buttonTextSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView33" />
+
+    <EditText
+        android:id="@+id/addSupportMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/button17"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/radioSubject"
+        app:layout_constraintTop_toBottomOf="@+id/textView33" />
+
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="message :"
+        android:textColor="@color/proTheme"
+        android:textSize="@dimen/detailes"
+        app:layout_constraintBottom_toTopOf="@+id/addSupportMessage"
+        app:layout_constraintEnd_toEndOf="@+id/addSupportMessage"
+        app:layout_constraintStart_toStartOf="@+id/addSupportMessage" />
+
+    <TextView
+        android:id="@+id/addSupportErorr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:textColor="@color/design_default_color_error"
+        android:textSize="@dimen/erorrSize"
+        app:layout_constraintEnd_toEndOf="@+id/button17"
+        app:layout_constraintStart_toStartOf="@+id/button17"
+        app:layout_constraintTop_toBottomOf="@+id/button17" />
+</androidx.constraintlayout.widget.ConstraintLayout>

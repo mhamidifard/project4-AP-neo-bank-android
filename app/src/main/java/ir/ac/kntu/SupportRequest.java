@@ -8,7 +8,7 @@ enum Status {
 }
 
 enum Subject {
-    VERIFY,REPORT, CONTACTS, TRANSFER, SETTING,PhoneCharge,card, NOTHING;
+    VERIFY,REPORT, CONTACTS, TRANSFER, SETTING,PhoneCharge,card,BOX, NOTHING;
 }
 
 public class SupportRequest {

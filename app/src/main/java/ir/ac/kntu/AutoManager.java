@@ -17,7 +17,17 @@ public class AutoManager implements Runnable{
                     i--;
                 }
             }
+
+            for (int i = 0; i < DataBase.getPendingSuppReq().size(); i++) {
+                sendAutoMessage(DataBase.getPendingSuppReq().get(i));
+                DataBase.getPendingSuppReq().remove(i);
+                i--;
+            }
         }
+    }
+
+    public static void sendAutoMessage(SupportRequest request){
+        request.addMessage("Our colleagues will contact you soon",Sender.SUPPORT);
     }
 
     public static void setLive(boolean live) {

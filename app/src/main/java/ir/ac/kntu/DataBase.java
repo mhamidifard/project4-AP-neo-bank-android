@@ -10,6 +10,7 @@ public class DataBase {
     private static Map<Long, Transaction> transactions = new HashMap<>();
     private static List<VerificationRequest> verifyRequests = new LinkedList<>();
     private static Map<Long, SupportRequest> supportRequests = new HashMap<>();
+    private static List<SupportRequest> pendingSuppReq=new LinkedList<>();
     private static List<RewardBox> rewardBoxes = new ArrayList<>();
     private static Map<Long,Long> simS=new HashMap<>();
 
@@ -175,6 +176,7 @@ public class DataBase {
     public static SupportRequest addSupportReq(String title, long userPhone, Subject subject) {
         SupportRequest request = new SupportRequest(userPhone, title, subject);
         supportRequests.put(request.getNavId(), request);
+        pendingSuppReq.add(request);
         return request;
     }
 
@@ -274,5 +276,13 @@ public class DataBase {
         DataBase.findById("007").verify();
         DataBase.addAdmin("mohammad sajjad","admin12","1382+");
         DataBase.addAdmin("amir hosseyn","admin13","1383+");
+    }
+
+    public static List<SupportRequest> getPendingSuppReq() {
+        return pendingSuppReq;
+    }
+
+    public static void setPendingSuppReq(List<SupportRequest> pendingSuppReq) {
+        DataBase.pendingSuppReq = pendingSuppReq;
     }
 }
