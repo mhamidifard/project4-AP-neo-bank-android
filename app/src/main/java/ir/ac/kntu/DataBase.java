@@ -14,6 +14,10 @@ public class DataBase {
     private static List<RewardBox> rewardBoxes = new ArrayList<>();
     private static Map<Long,Long> simS=new HashMap<>();
 
+    private static List<Loan> loanList=new ArrayList<>();
+    private static List<Loan> activeLoan=new ArrayList<>();
+    private static List<Loan> pendingLoan=new LinkedList<>();
+
     public static Account findByAccNum(long accNum) {
         if(accNum==0){
             return null;
@@ -196,6 +200,31 @@ public class DataBase {
         }
     }
 
+    public static Loan addLoan(int monthes,long amount,long accountNumber){
+        Loan loan=new Loan(monthes,amount,accountNumber);
+        loanList.add(loan);
+        pendingLoan.add(loan);
+        findByAccNum(accountNumber).getLoanRequests().add(0,loan);
+        return loan;
+    }
+
+    public static void acceptLoan(Loan loan){
+        //pendingLoan.remove(loan);
+        activeLoan.add(loan);
+        loan.accept();
+        findByAccNum(loan.getAccountNumber()).getAcceptedLoans().add(0,loan);
+    }
+
+    public static void rejectLoan(Loan loan){
+        //pendingLoan.remove(loan);
+        loan.setRejected(true);
+        loan.setStatus(LoanStatus.REJECTED);
+    }
+
+    public static void finishLoan(Loan loan){
+        activeLoan.remove(loan);
+    }
+
     public static long getChargeSim(long phone){
         return simS.getOrDefault(phone,0L);
     }
@@ -284,5 +313,29 @@ public class DataBase {
 
     public static void setPendingSuppReq(List<SupportRequest> pendingSuppReq) {
         DataBase.pendingSuppReq = pendingSuppReq;
+    }
+
+    public static List<Loan> getLoanList() {
+        return loanList;
+    }
+
+    public static void setLoanList(List<Loan> loanList) {
+        DataBase.loanList = loanList;
+    }
+
+    public static List<Loan> getActiveLoan() {
+        return activeLoan;
+    }
+
+    public static void setActiveLoan(List<Loan> activeLoan) {
+        DataBase.activeLoan = activeLoan;
+    }
+
+    public static List<Loan> getPendingLoan() {
+        return pendingLoan;
+    }
+
+    public static void setPendingLoan(List<Loan> pendingLoan) {
+        DataBase.pendingLoan = pendingLoan;
     }
 }

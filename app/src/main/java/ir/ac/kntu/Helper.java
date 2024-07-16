@@ -68,4 +68,9 @@ public class Helper {
         return "date : "+temp.substring(0,temp.indexOf("T"))+"\n\ntime : "+temp.substring(temp.indexOf("T")+1,temp.indexOf("Z"));
     }
 
+    public static String DateToStringJustDay(Instant instant){
+        String temp=instant.toString();
+        return temp.substring(0,temp.indexOf("T"));
+    }
+
 }

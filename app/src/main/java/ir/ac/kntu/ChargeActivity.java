@@ -35,7 +35,13 @@ public class ChargeActivity extends AppCompatActivity {
             erorrView.setText("invalid number");
             return;
         }
-        DashboardActivity.getAccount().charge(Long.parseLong(temp));
+        try {
+            DashboardActivity.getAccount().charge(Long.parseLong(temp));
+        }catch (Exception e){
+            erorrView.setText("invalid number");
+            return;
+        }
+
         finish();
 
     }

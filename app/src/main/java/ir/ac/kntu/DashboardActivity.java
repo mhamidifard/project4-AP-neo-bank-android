@@ -16,7 +16,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class DashboardActivity extends AppCompatActivity {
     private static Account account;
-    private TextView balanceView;
+    private TextView balanceView,accountNumber;
     private Handler handler=new Handler();
 
 
@@ -32,12 +32,14 @@ public class DashboardActivity extends AppCompatActivity {
         });
         balanceView=findViewById(R.id.balance);
 //        Account account=(Account)getIntent().getSerializableExtra("account");
+        accountNumber=findViewById(R.id.accountNumberView);
+        accountNumber.setText(Long.toString(account.getAccountNumber()));
     }
 
     @Override
     protected void onPostResume() {
         super.onPostResume();
-        //balanceView.setText(account.getBalance()+"");
+        balanceView.setText(account.getBalance()+"");
     }
 
     public void onBalance(View view) throws InterruptedException {
@@ -67,6 +69,17 @@ public class DashboardActivity extends AppCompatActivity {
     public void onSupport(View view){
         startActivity(new Intent(DashboardActivity.this,SupportListActivity.class));
     }
+
+    public void onLoanRequest(View view){
+        startActivity(new Intent(DashboardActivity.this,LoanListActivity.class));
+    }
+
+    public void onLoan(View view){
+        Intent intent=new Intent(DashboardActivity.this,LoanListActivity.class);
+        intent.putExtra("acceptedLoan",true);
+        startActivity(intent);
+    }
+
 
     public static void setAccount(Account account) {
         DashboardActivity.account = account;

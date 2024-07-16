@@ -3,10 +3,10 @@ package ir.ac.kntu;
 import java.time.Instant;
 
 enum TraType {
-    TRANSFER, CHARGE,BOXTRANSACTION,SIMCHARGE;
+    TRANSFER, CHARGE,BOXTRANSACTION,SIMCHARGE,LOAN,INSTALLMENT;
 }
 
-public abstract class Transaction {
+public class Transaction {
     private long value;
     private Instant date;
     private TraType type;
@@ -62,5 +62,10 @@ public abstract class Transaction {
         return type+"   value: "+getValue()+"  nav id: "+getNavId()+" date: "+getDate();
     }
 
-    public abstract String toStringComplete(Account account);
+    public String toStringComplete(Account account){
+        return type+
+                "\n\namount: "+value+
+                "\n\nnav id: "+navId+
+                "\n\n"+Helper.DateToString(date);
+    }
 }

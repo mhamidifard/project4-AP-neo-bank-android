@@ -23,11 +23,35 @@ public class AutoManager implements Runnable{
                 DataBase.getPendingSuppReq().remove(i);
                 i--;
             }
+
+            for (int i = 0; i < DataBase.getPendingLoan().size(); i++) {
+                checkLoan(DataBase.getPendingLoan().get(i));
+                DataBase.getPendingLoan().remove(i);
+                i--;
+            }
         }
     }
 
     public static void sendAutoMessage(SupportRequest request){
         request.addMessage("Our colleagues will contact you soon",Sender.SUPPORT);
+    }
+
+    public static void checkLoan(Loan loan){
+        Account account=DataBase.findByAccNum(loan.getAccountNumber());
+        for(Loan otherLoan: account.getAcceptedLoans()){
+            if(otherLoan.isDelay()){
+                DataBase.rejectLoan(loan);
+                return;
+            }
+        }
+
+        if(account.getScore()<loan.getAmount()){
+            DataBase.rejectLoan(loan);
+            return;
+        }
+        DataBase.acceptLoan(loan);
+        account.setScore(account.getScore()- loan.getAmount());
+
     }
 
     public static void setLive(boolean live) {

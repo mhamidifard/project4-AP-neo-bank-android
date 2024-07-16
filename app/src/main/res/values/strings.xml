@@ -17,4 +17,6 @@
     <string name="box">box</string>
     <string name="boxDetailesTest">type\n\ndays\n\nprofited\n\ndate\n\ntime</string>
     <string name="support">support</string>
+    <string name="loan">loan</string>
+    <string name="addloan">add loan</string>
 </resources>

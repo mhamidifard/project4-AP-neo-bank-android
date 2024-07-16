@@ -23,6 +23,9 @@ public class Account implements Serializable {
     private List<Long> supportRequests = new ArrayList<>();
     private Box smallMoneyBox;
     private List<Box> boxes = new ArrayList<>();
+    private List<Loan> loanRequests =new ArrayList<>();
+    private List<Loan> acceptedLoans=new ArrayList<>();
+    private long score=1000;
 
 
     public Account(String firstName, String lastName, long phoneNumber, String nationalId, String password) {
@@ -200,6 +203,19 @@ public class Account implements Serializable {
             return;
         }
         deposit(smallMoneyBox, amount);
+    }
+
+    public void payLoan(Loan loan){
+        balance+=loan.getAmount();
+        long navId = DataBase.addTransaction(new Transaction(loan.getAmount(),TraType.LOAN));
+        transactions.add(navId);
+    }
+
+    public long payInstallment(Long amount){
+        balance-=amount;
+        long navId = DataBase.addTransaction(new Transaction(amount,TraType.INSTALLMENT));
+        transactions.add(0,navId);
+        return navId;
     }
 
     public void chargeSim(long phoneNumber,long amount){
@@ -391,5 +407,29 @@ public class Account implements Serializable {
 
     public String getFullName(){
         return firstName+" "+lastName;
+    }
+
+    public List<Loan> getLoanRequests() {
+        return loanRequests;
+    }
+
+    public void setLoanRequests(List<Loan> loans) {
+        this.loanRequests = loans;
+    }
+
+    public List<Loan> getAcceptedLoans() {
+        return acceptedLoans;
+    }
+
+    public void setAcceptedLoans(List<Loan> acceptedLoans) {
+        this.acceptedLoans = acceptedLoans;
+    }
+
+    public long getScore() {
+        return score;
+    }
+
+    public void setScore(long score) {
+        this.score = score;
     }
 }

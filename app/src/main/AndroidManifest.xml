@@ -13,6 +13,18 @@
         android:theme="@style/Theme.FariBankAndroid"
         tools:targetApi="31">
         <activity
+            android:name=".ConfirmInstallmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanDetailesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddLoanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanListActivity"
+            android:exported="false" />
+        <activity
             android:name=".SupportDetailesActivity"
             android:exported="false" />
         <activity
