@@ -42,8 +42,9 @@ public class AddSupportActivity extends AppCompatActivity {
 //        transferId=findViewById(R.id.radioTransfer).getId();
 //        boxId=findViewById(R.id.radioBox).getId();
         idMap.put(findViewById(R.id.radioReport).getId(),Subject.REPORT);
-        idMap.put(findViewById(R.id.radioTransfer).getId(),Subject.CONTACTS);
+        idMap.put(findViewById(R.id.radioContact).getId(),Subject.CONTACTS);
         idMap.put(findViewById(R.id.radioBox).getId(),Subject.BOX);
+        idMap.put(findViewById(R.id.radioTransfer).getId(),Subject.TRANSFER);
     }
 
     public void onSend(View view){

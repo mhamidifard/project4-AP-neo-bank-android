@@ -80,7 +80,7 @@ public class AddBoxActivity extends AppCompatActivity {
             erorr.setText("invalid days");
             return;
         }
-        if (days < 3 || days > 365) {
+        if (days < 30 || days > 365) {
             erorr.setText("invalid days");
             return;
         }
