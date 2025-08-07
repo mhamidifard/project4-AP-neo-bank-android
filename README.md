@@ -74,10 +74,3 @@ An Android mobile banking app project (AP Neo Bank) that simulates the essential
   ```bash
   ./gradlew connectedAndroidTest
   ```
-
-##  Optional Additions
-
-- **Screenshots / Demo GIF**: Add under a `docs/` folder for quick preview.
-- **API Documentation**: If you have API integrations, share example endpoints or Swagger spec.
-- **Onboarding Flow**: If applicable, brief walkthrough for new users.
-- **Roadmap**: Planned enhancements like mobile deposits, QR payments, or budgeting tools.
